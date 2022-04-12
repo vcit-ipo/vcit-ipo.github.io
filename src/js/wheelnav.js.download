@@ -1,0 +1,59 @@
+window.onload = function () {
+
+    wheel1 = new wheelnav('wheelDiv');
+    wheel2 = new wheelnav('wheel2', wheel1.raphael);
+    
+    
+    wheel1.spreaderEnable = true;
+    wheel1.spreaderInPercent = 2.0;
+    wheel1.spreaderOutPercent = 2.0;
+    wheel1.spreaderPathInAttr = { fill: '#001D4C', 'stroke-width': 1, stroke: '#fff' };
+    wheel1.spreaderPathOutAttr = { fill: '#001D4C', 'stroke-width': 1.5, stroke: '#fff' };
+    wheel1.spreaderTitleInAttr = { fill: '#001D4C' };
+    wheel1.spreaderTitleOutAttr = { fill: '#001D4C' };
+    
+    wheel1.markerPathFunction = markerPath().DropMarker;
+    wheel1.markerAttr = { fill: '#001D4C', stroke: '#001D4C' };
+    wheel1.markerEnable = true;
+    
+    wheel1.slicePathFunction = slicePath().DonutSlice;
+    wheel1.slicePathCustom = slicePath().DonutSliceCustomization();
+    wheel1.slicePathCustom.minRadiusPercent = 0.23;
+    wheel1.slicePathCustom.maxRadiusPercent = 0.9;
+    wheel1.sliceSelectedPathCustom = wheel1.slicePathCustom;
+    wheel1.sliceInitPathCustom = wheel1.slicePathCustom;
+    wheel2.slicePathFunction = slicePath().DonutSlice;
+    wheel2.slicePathCustom = slicePath().DonutSliceCustomization();
+    wheel2.slicePathCustom.minRadiusPercent = 0.9;
+    wheel2.slicePathCustom.maxRadiusPercent = 1.0;
+    wheel2.sliceSelectedPathCustom = wheel2.slicePathCustom;
+    wheel2.sliceInitPathCustom = wheel2.slicePathCustom;
+    
+    wheel2.titleCurved = true;
+    wheel2.titleCurvedClockwise = false;
+    wheel2.titleCurvedByRotateAngle = false;
+      
+    wheel1.clickModeRotate = true;
+    wheel2.clickModeRotate = true;
+    wheel1.spreaderRadius = 15;
+    wheel1.navAngle = 90;
+    wheel2.navAngle = 90;
+    wheel1.titleRotateAngle = -90;
+    wheel1.animatetime = 400;
+    wheel1.animateeffect = 'linear';
+    wheel1.initTitleRotate = true;
+    wheel1.clockwise = true;
+    wheel1.rotateRound = false;
+    wheel2.createWheel(['']);
+    wheel1.createWheel(['']);
+    
+    var wheelspreader = document.getElementById("wheelnav-wheelDiv-spreader");
+    var wheelspreadertitle = document.getElementById("wheelnav-wheelDiv-spreadertitle");
+    wheelspreader.onmousedown = function() {openSpreader();}
+    wheelspreadertitle.onmousedown = function() {openSpreader();}
+    
+    };
+    
+    var openSpreader = function() {
+     wheel1.minPercent = wheel1.maxPercent;
+    };

@@ -1,0 +1,52 @@
+.illustration {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+}
+.button-bg {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none
+}
+button {
+    display: inline-block;
+    padding: 0.5em 3em;
+    border: 0.16em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s;
+    background-color: #001D4C;
+    border-radius: 25px;
+}
+button:hover{
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    animation: glow 1s ease-in infinite;
+}
+button:active{
+    color:#001D4C;
+    border-color:#BBBBBB;
+}
+button:hover::before {
+    filter: blur(20px);
+    opacity: 1;
+  }
+@media all and (max-width:30em){
+ button{
+    display: block;
+    margin: 0.4em auto;
+ }
+}
+
+
+  h2 {
+      text-align: center;
+      padding-top: 4%;
+  }

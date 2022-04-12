@@ -1,0 +1,23 @@
+(function($) {
+    $(document).ready(function(){  setTimeout(function(){
+        $("[id^='wheelnav-wheelDiv-slice-']").hover(function(){
+            var currentID = $(this).attr("id"),
+            i = "[data-value='"+ currentID +"']";
+            
+            $("[data-value]").removeClass("active");
+            $(i).addClass("active");
+        }, function () {
+            $("[data-value]").removeClass("active");
+        });
+
+        $("[class^='wheelnav-wheelDiv-title-']").hover(function(){
+            var currentID = $(this).attr("id").slice(-1),
+            i = "[data-value='wheelnav-wheelDiv-slice-"+ currentID +"']";
+            $("[data-value]").removeClass("active");
+            $(i).addClass("active");
+        }, function () {
+            $("[data-value]").removeClass("active");
+        });
+
+    },500);});
+}(jQuery));
